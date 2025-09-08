@@ -1,4 +1,3 @@
-
 name1 = input("What's your name?")
 name2 = input("What's your name?")
 name3 = input("What's your name?")
