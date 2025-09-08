@@ -1,4 +1,3 @@
-print("Hello, World!")
 
 name1 = input("What's your name?")
 name2 = input("What's your name?")
