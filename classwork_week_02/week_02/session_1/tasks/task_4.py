@@ -27,3 +27,8 @@ print(vegetable)
 
 symmetric_difference = fruit.symmetric_difference(vegetable)
 print(symmetric_difference)
+
+a = fruit.difference(vegetable)
+b = vegetable.difference(fruit)
+print(a)
+print(b)
