@@ -10,6 +10,5 @@ print(fruit.index("banana"))
 print(fruit.count("cherry"))
 
 # Unpack tuple
-
 (first, second, third) = fruit
 print(first, second, third)
