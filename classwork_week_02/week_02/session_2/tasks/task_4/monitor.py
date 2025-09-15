@@ -53,3 +53,55 @@
 
 # Note: Focus on using clear and logical conditional statements to ensure your program functions as expected.
 # Remember: when you accept numerical values, you should make sure you consider how robust your code is.
+
+import datetime
+
+temperature = int(input("Please enter the machine's temperature in degrees Celsius (use integer)\n"))
+pressure = int(input("Please enter the machine's pressure in PSI (use integer)\n"))
+status = int(input("Please enter the machine's operational status (1 for operating, 0 for stopped)\n"))
+
+# Step 2: Evaluate the Machine's Conditions
+temp_high = False
+pressure_high = False
+
+if temperature > 80:
+    print("The temperature is too high, it is recommended to shut down the machine.")
+    temp_high = True
+elif 50 <= temperature <= 80:
+    print("The temperature is within safe limits.")
+elif temperature < 50:
+    print("The machine temperature is low, no action is needed.")
+
+if pressure > 100:
+    print("High pressure is detected, it is recommended to maintain the machine")
+    pressure_high = True
+elif 70 <= pressure <= 100:
+    print("The pressure is stable.")
+elif pressure < 70:
+    print("The pressure is low and the system is operating normally.")
+
+# Step 3: Check Operational Status
+if status == 1:
+    if temp_high or pressure_high:
+        print("The machine is running in unsafe conditions and it is recommended to shut it down.")
+    else:
+        print("The machine is running normally.")
+else:
+    print("The machine is stopped and no immediate action is needed.")
+
+log_entry = f"""
+Timestamp: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+Temperature: {temperature}°C
+Pressure: {pressure} PSI
+Operational Status: {'Operating' if status == 1 else 'Stopped'}
+Temperature Status: {'High (>80°C)' if temp_high else 'Normal' if 50 <= temperature <= 80 else 'Low (<50°C)'}
+Pressure Status: {'High (>100 PSI)' if pressure_high else 'Stable' if 70 <= pressure <= 100 else 'Low (<70 PSI)'}
+Action Taken: {'Shutdown recommended' if (status == 1 and (temp_high or pressure_high)) else 'No action needed' if status == 0 else 'Normal operation'}
+---
+"""
+
+with open("machine_log.txt", "a", encoding="utf-8") as log_file:
+    log_file.write(log_entry)
+
+print("Machine status has been logged to machine_log.txt")
+
