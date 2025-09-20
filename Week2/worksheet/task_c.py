@@ -7,8 +7,7 @@ numbers = read_numbers()
 
 #If no number in the list
 if not numbers:
-    print("Error: no numbers provided")
-    sys.exit("Error!")
+    sys.exit("Error: no numbers provided")
 
 #Calculte
 min_value = min(numbers)
