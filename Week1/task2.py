@@ -9,8 +9,8 @@ try:
     #Calculate the total money
     final_money = total_money + interest
 
-    print(f"The amount saved every year:{total_money}")
-    print(f"The total money:{final_money}")
+    print(total_money)
+    print(f"£{final_money:.2f}")
 
 except:
     print("Invalid amount")
