@@ -29,5 +29,5 @@ else:
 #print out the result
 print(f"Minimum = {min_value}")
 print(f"Maximum = {max_value}")
-print(f"Mean = {mean_value}")
-print(f"Median = {median_value}")
+print(f"Mean    = {mean_value}")
+print(f"Median  = {median_value}")
