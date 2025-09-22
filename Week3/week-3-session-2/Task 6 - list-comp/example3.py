@@ -12,3 +12,5 @@ print(result)
 # Modify the result to only show which vowels occur, not every occurrence.
 # Sort the list alphabetically.
 # Hint: consider the properties of different data structures
+res = sorted(list(set(c for c in words if c in vowels)))
+print(res)

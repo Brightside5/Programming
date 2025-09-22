@@ -1,10 +1,7 @@
+even_sum = 0
 
-sum = 0
+for k in range(2, 21, 2):
+    even_sum = even_sum + k**2
+    print(even_sum)
 
-for k in range(1,10) :
-    sum = sum + k**2
-
-print(sum)
-    
-# modify the code to sum the squares of even numbers up to and including 20
-# modify the code to print the sum at each iteration
+print(even_sum)

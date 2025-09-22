@@ -5,5 +5,7 @@ print(values)
 
 newval = [ 2*x if x%2==0 else x for x in values ]
 
+print(newval)
+
 # what does this list comprehension produce and why?
 # try to predict the result before printing it
