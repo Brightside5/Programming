@@ -28,7 +28,7 @@ def mix_both_args(pos_only_arg, /, std_arg, *, key_only_arg):
 # Uncomment each line one by one to find out. If it
 # does not work, why?
 
-standard_arg(5, 6)
+# standard_arg(5, 6)
 # standard_arg(arg1=7, arg2=9)
 # position_only_arg("hi", "there", "here")
 # position_only_arg(arg2=6, arg1=3, arg3=9)

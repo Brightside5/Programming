@@ -19,9 +19,16 @@ def count_occurences(l_strings, target, /):
     """
 
     # Complete your code here
-
+    count = 0
+    for item in l_strings:
+        if item == target:
+            count += 1
     return count
 
 
 # Write code to call the function and check if 
 # correct output is produced
+print(count_occurences(["apple", "banana", "apple", "cherry"], "apple"))  # Expected: 2
+print(count_occurences(["hello", "world", "hello"], "hello"))  # Expected: 2
+print(count_occurences(["a", "b", "c"], "d"))  # Expected: 0
+print(count_occurences("a", ["a", "b", "c"]))
