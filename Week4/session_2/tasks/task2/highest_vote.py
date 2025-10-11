@@ -17,9 +17,18 @@ def most_frequent_string(votes):
         - None, None: if votes is empty.
     """
 
-    # Your task is the complete the body of the function based on the
-    # details in docstring.
-
+    # Updated version to handle ties: return list of items if ties, else single item
+    if not votes:
+        return None, None
+    count = {}
+    for vote in votes:
+        count[vote] = count.get(vote, 0) + 1
+    max_count = max(count.values())
+    top_items = [item for item, cnt in count.items() if cnt == max_count]
+    if len(top_items) == 1:
+        return top_items[0], max_count
+    else:
+        return top_items, max_count
 
 Leeds = ['date', 'apple', 'cherry', 'date', 'apple', 'apple', 'elderberry',
          'date', 'elderberry', 'elderberry', 'date', 'banana']
