@@ -6,6 +6,13 @@
 
 
 def mystery_func(string):
+    """
+    To obtain the  number of upper and lower alphabets in the string
+
+    return value:
+    upper:the number of upper alphabets
+    lower:the number of lower alphabets
+    """
     upper = 0
     lower = 0
 
