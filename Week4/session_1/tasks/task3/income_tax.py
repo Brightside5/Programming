@@ -33,6 +33,32 @@ def income_tax_calculator(annual_income):
         one decimal point. You can use the round() function,
         e.g round(tax, 1) 0.0 if annual_income is not a positive integer.
     """
+    if annual_income <= 0:
+        return 0.0
+    
+    tax = 0.0
+    personal_allowance = 12570
+    basic_threshold = 50270
+    higher_threshold = 125140
+    
+    if annual_income > personal_allowance:
+        taxable = annual_income - personal_allowance
+        # Basic rate: 20%
+        if taxable <= (basic_threshold - personal_allowance):
+            tax += taxable * 0.2
+        else:
+            tax += (basic_threshold - personal_allowance) * 0.2
+            taxable -= (basic_threshold - personal_allowance)
+            # Higher rate: 40%
+            if taxable <= (higher_threshold - basic_threshold):
+                tax += taxable * 0.4
+            else:
+                tax += (higher_threshold - basic_threshold) * 0.4
+                taxable -= (higher_threshold - basic_threshold)
+                # Additional rate: 45%
+                tax += taxable * 0.45
+    
+    return round(tax, 1)
 
 
 # Check if the following lines produce the correct output

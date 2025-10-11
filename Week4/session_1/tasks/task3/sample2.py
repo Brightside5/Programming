@@ -7,7 +7,7 @@
 def add_two_numbers(num1, num2):
     num1 = float(num1)
     num2 = float(num2)
-    return (num1 + num2)     # What happen if you remove the parenthesis ()?
+    return num1 + num2     # What happen if you remove the parenthesis ()?
 
 
 # Check if the following lines produce the correct output
