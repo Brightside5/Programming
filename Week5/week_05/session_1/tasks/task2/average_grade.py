@@ -1,6 +1,23 @@
+import csv
+
 # Step 1: Open a file called 'student_data.csv' to read each student's grades.
 # hint: skip the header row with data[1:]
 # hint: you could handle file errors with try/except
+try:
+    with open('student_data.csv', 'r') as file:
+        reader = csv.reader(file)
+        data = list(reader)
+        students = []
+        for row in data[1:]:  # Skip header
+            name = row[1]
+            maths = int(row[2])
+            science = int(row[3])
+            history = int(row[4])
+            average = (maths + science + history) / 3
+            students.append({'name': name, 'average': average})
+except FileNotFoundError:
+    print("Error: student_data.csv not found.")
+    exit()
 
 # Step 2: Read each student's grades and calculate their average grade
 # hint: CSV data comes as strings, convert grade columns to int() for maths
@@ -10,8 +27,12 @@
 # Step 3: Sort the students by their average grade in descending order.
 # hint: you might want to store each student as a dictionary with name and average
 # hint: use the sorted() function with a key parameter, or list.sort()
+students_sorted = sorted(students, key=lambda x: x['average'], reverse=True)
 
 # Step 4: Open a file called 'report.txt'
 # Write each student's name and their average grade to the report in order
 # hint: use 'w' mode to create a fresh report each time
 # hint: format averages nicely, maybe to 2 decimal places with :.2f
+with open('report.txt', 'w') as report:
+    for student in students_sorted:
+        report.write(f"{student['name']}: {student['average']:.2f}\n")
