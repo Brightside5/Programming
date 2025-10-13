@@ -21,3 +21,15 @@
 # story.txt - 290
 # story2.txt - 326
 # glasses.txt - 215
+
+name = input("Please enter the name of the file:\n")
+try:
+    with open(name, "r") as infile:
+        content = infile.read()
+        words = content.split()
+        # Filter out empty strings to handle empty lines
+        words = [word for word in words if word]
+        number = len(words)
+    print(f"The file '{name}' has {number} words.")
+except FileNotFoundError:
+    print(f"Error: The file '{name}' was not found.")

@@ -1,3 +1,5 @@
+import csv
+
 # log files are provided by websites to track different http requests and where they come from
 # this is useful for blocking disruptive IP addresses, tracking failed login attempts, and handling DDOS attacks
 # site.log is an example of a log file - you can see it is not very human-readable
@@ -13,3 +15,14 @@
 # - Each row has: Date, Time, IP_Address, User_Agent, Request, Status_Code
 # - You need to find rows where Request = "POST /login" AND Status_Code = "401"
 # - Use list comprehension or loops to filter the data
+try:
+    with open("site.log", "r") as site:
+        reader = csv.reader(site)
+        next(reader)  # Skip header
+        for row in reader:
+            if row[4] == "POST /login" and row[5] == "401":
+                print(f"IP address {row[2]} failed to login at {row[1]} on {row[0]}")
+except FileNotFoundError:
+    print("File not found")
+except Exception as e:
+    print(f"Error: {e}")
