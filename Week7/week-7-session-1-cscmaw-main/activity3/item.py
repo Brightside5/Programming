@@ -16,3 +16,24 @@
 #     based on the current quantity and price_per_unit. If quantity is 0, return a 0.
 # (4) display_item(): prints the details of the item including the name, sku, quantity,
 #     price_per_unit, and the total stock value (calculated using get_total_value())
+
+class InventoryItem:
+    def __init__(self,name,sku,quantity,price_per_unit):
+        self.name = name
+        self.sku = sku
+        self.quantity = quantity
+        self.price_per_unit = price_per_unit
+    
+    def add_stock(self, amount):
+        self.quantity += amount
+    
+    def remove_stock(self, amount):
+        self.quantity = max(0, self.quantity - amount)
+    
+    def get_total_value(self):
+        return self.quantity * self.price_per_unit
+    
+    def display_item(self):
+        total_value = self.get_total_value()
+        print(f"Name: {self.name}, SKU: {self.sku}, Quantity: {self.quantity}, Price per Unit: {self.price_per_unit}, Total Value: {total_value}")
+

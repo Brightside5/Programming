@@ -1,17 +1,22 @@
 # write code to import the shapes module
+import shapes
 
 
 # write code to create an instance of Circle and then a call the draw method
-
+circle1 = shapes.Circle(2)
+circle1.draw()
 
 # write code to create an instance of Rectangle and then a call to the draw method
-
+rectangle1 = shapes.Rectangle(5,2)
+rectangle1.draw()
 
 # write code to create an instance of Square and then a call to the draw method
-
+square = shapes.Square(5)
+square.draw()
 
 # write code to create an instance of Triangle and then a call to the draw method
-
+triangle1 = shapes.Triangle(3)
+triangle1.draw()
 
 
 
