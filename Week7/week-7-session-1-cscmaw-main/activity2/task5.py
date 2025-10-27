@@ -1,3 +1,6 @@
+###Still have question:how to split?
+
+
 # Define a Recipe class to represent a recepi with ingredients, instructions, and servings.
 # The Recipe class should have the following fields:
 # (1) name: The name of the recipe (e.g., "Chocolate Cake").
@@ -21,14 +24,33 @@
 #     If the ingredient already exists, update its quantity by adding the specified amount to the existing quantity.
 #     Example: If "flour" already has 200 grams, calling add_ingredient("flour", 50) will update "flour" to 250.
 
+class Recipe:
+    def __init__(self,name,ingredients,instructions,servings):
+        self.name = name
+        self.ingredients = ingredients
+        self.instructions = instructions
+        self.servings = servings
 
+    def display_recipe(self):
+        print(f"Recipe: {self.name}")
+        print(f"Servings: {self.servings}")
+        print("Ingredients:")
+        for ing, qty in self.ingredients.items():
+            print(f"  - {ing}: {qty}")
+        print("Instructions:")
+        for instr in self.instructions.split('. '):
+            if instr.strip():
+                print(f"  {instr.strip()}")
 
-
-
-
-
-
-
+    def add_ingredient(self, name, quantity):
+        if name in self.ingredients:
+            self.ingredients[name] += quantity
+        else:
+            self.ingredients[name] = quantity
 
 # Once completed, create an instance of Recepi with your favourite dish and 
 # call each method least once.
+recipe = Recipe("Chocolate Cake", {"flour": 200, "sugar": 100}, "1. Preheat oven to 350°F. 2. Mix flour and sugar.", 4)
+recipe.display_recipe()
+recipe.add_ingredient("butter", 50)
+recipe.display_recipe()
