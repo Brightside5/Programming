@@ -3,7 +3,12 @@
 # (2) health - the character's health points
 # (3) level - the current level of the character, default to 1
 # (4) attack_power - the character base attack power
-
+class Character:
+    def __init__(self,name,health,level,attack_power):
+        self.name = name
+        self.health = health
+        self.level = level
+        self.attack_power = attack_power
 
 
 
@@ -19,7 +24,8 @@
 #     and prints a message indicating the character leveled up, e.g., Naruto leveled up to 22
 # (4) __str__ - to return a summary of the character's name, level, health, and attack power,
 #     e.g., Character 'Naruto' - Level: 1, Health: 100, Attack Power: 20
-
+    def attack(self):
+        print(f"{self.name} attacks with power {self.attack_power}")
 
 
 

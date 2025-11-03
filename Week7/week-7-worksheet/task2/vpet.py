@@ -41,7 +41,7 @@ class VirtualPet:
 
     def play(self):
         if self.energy < 2:
-            print(f"{self.name} is too tired to play!")
+            return f"{self.name} is too tired to play!"
         else:
             self.energy -= 2
             self.hunger += 2
@@ -49,8 +49,8 @@ class VirtualPet:
     def feed(self):
         self.hunger -= 3
         if self.hunger < 0:
-            print(f"{self.name} is overfed!")
             self.hunger = 0
+            return f"{self.name} is overfed!"
 
     def sleep(self):
         self.energy += 10
@@ -62,3 +62,4 @@ class VirtualPet:
         if isinstance(other, VirtualPet):
             return self.name == other.name and self.energy == other.energy and self.hunger == other.hunger
         return False
+    
